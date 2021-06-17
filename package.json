@@ -1,0 +1,21 @@
+{
+  "name": "debut-plugin-log",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "debut",
+    "plugin",
+    "log"
+  ],
+  "repository": "https://github.com/voqse/debut-plugin-log.git",
+  "author": "voqse",
+  "license": "ISC",
+  "devDependencies": {
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  }
+}
