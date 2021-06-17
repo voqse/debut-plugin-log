@@ -1,6 +1,5 @@
 .idea
 node_modules
-out
 build
 npm-debug.log
 .env
