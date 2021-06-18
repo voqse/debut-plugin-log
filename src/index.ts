@@ -1,5 +1,6 @@
 import { PluginCtx, PluginInterface, ExecutedOrder } from '@debut/types';
 import { StatsInterface } from '@debut/plugin-stats';
+// @ts-ignore
 import log from 'log-beautify';
 
 export function logPlugin(): PluginInterface {
@@ -31,7 +32,9 @@ export function logPlugin(): PluginInterface {
         name: 'log',
 
         onInit() {
+            // @ts-ignore
             ctx = this;
+            // @ts-ignore
             stats = this.findPlugin('stats');
 
             if (!stats) {
