@@ -21,7 +21,7 @@ export function logPlugin(): PluginInterface {
     let ordersCounter: number = 0;
 
     // Ширины колонок таблицы
-    const cw = [6, 12, 10, 6, 12, 12, 16, 12, 12, 10];
+    const cw = [6, 12, 10, 6, 12, 12, 16, 12, 12, 12, 10];
 
     let tableWidth: 0;
     cw.forEach((col) => {
@@ -68,7 +68,8 @@ export function logPlugin(): PluginInterface {
                 'BALANCE'.padStart(cw[6]) +
                 'PROFIT'.padStart(cw[7]) +
                 'LOOSE'.padStart(cw[8]) +
-                'STATUS'.padEnd(cw[9] - 1).padStart(cw[9] + 1);
+                'COMMISSION'.padStart(cw[9]) +
+                'STATUS'.padEnd(cw[10] - 1).padStart(cw[10] + 1);
             log.headers_(headers);
         }
 
@@ -84,9 +85,10 @@ export function logPlugin(): PluginInterface {
             report.balance.toString().padStart(cw[6]) +
             report.profitProb.toString().padStart(cw[7]) +
             report.looseProb.toString().padStart(cw[8]) +
-            direction.padEnd(cw[9] - 1).padStart(cw[9] + 1);
+            order.commission.value.toString().padStart(cw[9]) +
+            direction.padEnd(cw[10] - 1).padStart(cw[10] + 1);
         // ctx.debut.orders.length.toString().padStart(cw[8]);
-        if (report.profitProb >= report.looseProb) {
+        if (report.profitProb - order.commission.value >= report.looseProb) {
             log.success(row);
         } else {
             log.error(row);
