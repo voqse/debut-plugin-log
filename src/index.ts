@@ -74,6 +74,7 @@ export function logPlugin(): PluginInterface {
         }
 
         const report = stats.api.report();
+        const commission = Math.round(order.commission.value * 100) / 100;
 
         const row =
             ordersCounter.toString().padStart(cw[0]) +
@@ -85,7 +86,7 @@ export function logPlugin(): PluginInterface {
             report.balance.toString().padStart(cw[6]) +
             report.profitProb.toString().padStart(cw[7]) +
             report.looseProb.toString().padStart(cw[8]) +
-            order.commission.value.toString().padStart(cw[9]) +
+            commission.toString().padStart(cw[9]) +
             direction.padEnd(cw[10] - 1).padStart(cw[10] + 1);
         // ctx.debut.orders.length.toString().padStart(cw[8]);
         if (report.profitProb - order.commission.value >= report.looseProb) {
